@@ -29,16 +29,16 @@ command
 
 2. create the ServiceMeshMemberRoll under namespace istio-system
 
-apiVersion: maistra.io/v1
-kind: ServiceMeshMemberRoll
-metadata:
-	name: default
-	namespace: istio-system 
-spec:
-	members:
-  	- demo-bookinfo 
-  	- demo-catalog
-  	- demo-inventory
+	apiVersion: maistra.io/v1
+	kind: ServiceMeshMemberRoll
+	metadata:
+		name: default
+		namespace: istio-system 
+	spec:
+		members:
+  		- demo-bookinfo 
+  		- demo-catalog
+  		- demo-inventory
   
 
 3. Deploy Bookinfo micorservice web app
