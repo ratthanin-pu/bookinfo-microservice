@@ -33,7 +33,7 @@ command
  kind: ServiceMeshMemberRoll
  metadata:
    name: default
-   namespace: istio-system 
+   namespace: istio-system
  spec:
    members:
      - demo-bookinfo 
