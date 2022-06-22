@@ -14,11 +14,10 @@ oc -n bookinfo get route istio-ingressgateway -o jsonpath='{.spec.host}'
 
 1. create project
 Project name
-
-istio-system
-demo-bookinfo
-demo-catalog
-demo-inventory
+- istio-system
+- demo-bookinfo
+- demo-catalog
+- demo-inventory
 
 command
 
