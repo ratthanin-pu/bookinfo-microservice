@@ -21,24 +21,24 @@ Project name
 
 command
 
-oc new-project istio-system
-oc new-project demo-bookinfo
-oc new-project demo-catalog
-oc new-project demo-inventory
-
+	oc new-project istio-system
+	oc new-project demo-bookinfo
+	oc new-project demo-catalog
+	oc new-project demo-inventory
+	
 
 2. create the ServiceMeshMemberRoll under namespace istio-system
 
 apiVersion: maistra.io/v1
 kind: ServiceMeshMemberRoll
 metadata:
-  name: default
-  namespace: istio-system 
+	name: default
+	namespace: istio-system 
 spec:
-  members:
-    - demo-bookinfo 
-    - demo-catalog
-    - demo-inventory
+	members:
+  	- demo-bookinfo 
+  	- demo-catalog
+  	- demo-inventory
   
 
 3. Deploy Bookinfo micorservice web app
