@@ -1,3 +1,4 @@
+
 ------------------
 Service Mesh demo
 ------------------
@@ -47,17 +48,19 @@ oc apply -n demo-bookinfo -f https://raw.githubusercontent.com/ratthanin-pu/book
 4. Deploy gateway 
 oc apply -n demo-bookinfo -f https://raw.githubusercontent.com/ratthanin-pu/bookinfo-microservice/main/istio/bookinfo-gateway.yaml
 
-5. 
+5. Deploy destination rule for istio
 oc apply -n demo-bookinfo -f https://raw.githubusercontent.com/ratthanin-pu/bookinfo-microservice/main/istio/destination-rule-all.yaml
 
+6. Get destinationrules
 oc get -n demo-bookinfo destinationrules
 
-
+7. Get istio route url
 ### Get Gateway URL
 oc -n <name space for isio control pane> get route istio-ingressgateway -o jsonpath='{.spec.host}')
 
 oc -n istio-system get route istio-ingressgateway -o jsonpath='{.spec.host}'
 
+8. Apply proxy sidecar envoy
 oc patch -n demo-bookinfo virtualservice/bookinfo --type='json' -p '[{"op":"add","path":"/spec/hosts","value": ["<Gateway URL>"]}]'
 
 # example
@@ -69,7 +72,7 @@ http://istio-ingressgateway-istio-system.apps.cluster-kqv6n.kqv6n.sandbox1267.op
 user : jason
 pass : jason
 
-
+9. configure label and annotate
 oc project demo-bookinfo && \
 oc label deployment/productpage-v1 app.openshift.io/runtime=python --overwrite && \
 oc label deployment/details-v1 app.openshift.io/runtime=ruby --overwrite && \
@@ -87,7 +90,7 @@ oc annotate deployment/productpage-v1 app.openshift.io/connects-to=reviews-v1,re
 oc annotate deployment/reviews-v2 app.openshift.io/connects-to=ratings-v1 && \
 oc annotate deployment/reviews-v3 app.openshift.io/connects-to=ratings-v1
 
-
+10. configure rollout
 oc rollout status -n demo-bookinfo -w deployment/productpage-v1 && \
 oc rollout status -n demo-bookinfo -w deployment/reviews-v1 && \
 oc rollout status -n demo-bookinfo -w deployment/reviews-v2 && \
@@ -108,4 +111,8 @@ Teseting workload web
 siege -c 4 http://$BOOK_URL/productpage
 or
 for i in {1..1000} ; do curl -o /dev/null -s -w "%{http_code}\n" http://$BOOK_URL/productpage ; sleep 2 ; done
-
+  
+  
+  
+  
+  
