@@ -52,7 +52,7 @@ spec:
     spec:
       containers:
         - name: details
-          image: quay.io/ratthanin_p/bookinfo-details-v1:0.12.0
+          image: docker.io/istio/examples-bookinfo-details-v1:1.17.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9080
@@ -97,7 +97,7 @@ spec:
     spec:
       containers:
         - name: ratings
-          image: quay.io/ratthanin_p/bookinfo-ratings-v1:0.12.0
+          image: docker.io/istio/examples-bookinfo-ratings-v1:1.17.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9080
@@ -147,7 +147,7 @@ spec:
     spec:
       containers:
         - name: reviews
-          image: quay.io/ratthanin_p/bookinfo-reviews-v1:0.12.0
+          image: docker.io/istio/examples-bookinfo-reviews-v1:1.17.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9080
@@ -176,7 +176,7 @@ spec:
       serviceAccountName: bookinfo-reviews
       containers:
         - name: reviews
-          image: quay.io/ratthanin_p/bookinfo-reviews-v2:0.12.0
+          image: docker.io/istio/examples-bookinfo-reviews-v2:1.17.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9080
@@ -205,7 +205,7 @@ spec:
       serviceAccountName: bookinfo-reviews
       containers:
         - name: reviews
-          image: quay.io/ratthanin_p/bookinfo-reviews-v3:0.12.0
+          image: docker.io/istio/examples-bookinfo-reviews-v3:1.17.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9080
@@ -256,7 +256,7 @@ spec:
       serviceAccountName: bookinfo-productpage
       containers:
         - name: productpage
-          image: quay.io/ratthanin_p/bookinfo-productpage-v1:0.12.0
+          image: docker.io/istio/examples-bookinfo-productpage-v1:1.17.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9080
